@@ -1,5 +1,4 @@
 defmodule Mix.Tasks.PhxSvg.Build do
-  # Builds a new lib/heroicons.ex with bundled icon set.
   @moduledoc """
   Generate Phoenix.Component module from svgs from `.proto` files.
 
@@ -15,7 +14,9 @@ defmodule Mix.Tasks.PhxSvg.Build do
   mix phx_svg.build --mod-name=Test --svg-path="path/to/svgs/**/*.svg" --output-path="./lib/test.ex"
   ```
   """
+
   @shortdoc "Generate a `Phoenix.Component` with svg functions"
+
   use Mix.Task
 
   @target_file "lib/svgs.ex"
@@ -42,7 +43,6 @@ defmodule Mix.Tasks.PhxSvg.Build do
       |> Path.expand()
 
     svg_files = Path.wildcard(Path.expand(opts[:svg_path]))
-    # svgs = Path.wildcard(Path.expand(".simon/icons/svg/server/*.svg"))
 
     svgs =
       for file <- svg_files do

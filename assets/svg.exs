@@ -6,6 +6,7 @@ defmodule <%= @mod_name %> do
 
   Function names are based on the svg filename, for example:
   <% f_name = Enum.random(@svgs) |> elem(0) %>
+
   ```heex
     <<%= @mod_name%>.<%= f_name %> />
   ```
@@ -44,6 +45,7 @@ defmodule <%= @mod_name %> do
   You may also pass arbitrary HTML attributes to be applied to the svg tag.
 
   ## Examples
+
   ```heex
   <<%= @mod_name %>.<%= func %> />
   <<%= @mod_name %>.<%= func %> class="w-4 h-4" />
