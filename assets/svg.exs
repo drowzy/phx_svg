@@ -19,10 +19,12 @@ defmodule <%= @mod_name %> do
 
   use Phoenix.Component
 
-  attr :rest, :global
-  # slot :inner_block, required: true
   defp svg(assigns) do
-    assigns = assign(assigns, :computed_rest, Map.merge(assigns.rest, Enum.into(assigns.svg_attrs, %{})))
+    assigns =
+      assign(
+        assigns, :computed_rest, Map.merge(assigns.rest, Enum.into(assigns.svg_attrs, %{}))
+      )
+
     ~H"""
     <svg {@computed_rest}>
       <%%= {:safe, @paths[:default]} %>
