@@ -19,22 +19,17 @@ defmodule <%= @mod_name %> do
 
   use Phoenix.Component
 
+  attr :rest, :global
+  # slot :inner_block, required: true
   defp svg(assigns) do
     assigns = assign(assigns, :computed_rest, Map.merge(assigns.rest, Enum.into(assigns.svg_attrs, %{})))
-
-    ~H"<.svg_outline {@computed_rest}><%%= {:safe, @paths[:default]} %></.svg_outline>"
-  end
-
-
-  attr :rest, :global
-  slot :inner_block, required: true
-  defp svg_outline(assigns) do
     ~H"""
-    <svg {@rest}>
-      <%%= render_slot(@inner_block) %>
-    </svg>
+    <svg {@computed_rest}>
+      <%%= {:safe, @paths[:default]} %>
+    </svg>"
     """
   end
+
 
   <%= for svg <- @svgs, {func, [{"svg", svg_attrs, els}]} = svg do %>
   @doc """
@@ -51,10 +46,8 @@ defmodule <%= @mod_name %> do
   <<%= @mod_name %>.<%= func %> class="w-4 h-4" />
   ```
   """
+
   attr :rest, :global, doc: "the arbitrary HTML attributes for the svg container", include: ~w(fill stroke stroke-width)
-  attr :outline, :boolean, default: true
-  attr :solid, :boolean, default: false
-  attr :mini, :boolean, default: false
 
   def <%= func %>(assigns) do
     svg(assign(assigns, svg_attrs: <%= inspect(svg_attrs, limit: :infinity) %>, paths: %{default: ~S|<%= Floki.raw_html(els) %>|}))
