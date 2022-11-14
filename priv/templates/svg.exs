@@ -35,10 +35,9 @@ defmodule <%= @mod_name %> do
 
   <%= for svg <- @svgs, {func, [{"svg", svg_attrs, els}]} = svg do %>
   @doc """
-  Renders the `<%= func %>` icon.
-  By default, it maintains the svg attributes from loaded from file
-  attributes can be provided for alternative styles.
+  Renders the `<%= func %>` svg.
 
+  By default, it maintains the svg attributes loaded from file.
   You may also pass arbitrary HTML attributes to be applied to the svg tag.
 
   ## Examples

@@ -1,6 +1,13 @@
 # PhxSvg
 
-Precompile SVGS
+Precompile SVGS to functions. Packaged as a `Phoenix Component`
+
+## Usage
+
+```sh
+mix phx_svg.build --mod-name=MySvgs --svg-path="path/to/svgs/**/*.svg" --output-path="./lib/my_app_web/components/svgs.ex"
+```
+
 
 ## Installation
 

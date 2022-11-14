@@ -1,6 +1,9 @@
 defmodule Mix.Tasks.PhxSvg.Build do
   @moduledoc """
-  Generate Phoenix.Component module from svgs from `.proto` files.
+  Generate `Phoenix.Component` from `.svg` files.
+
+  Each filename matched by `svg_path` is included as a `Phoenix.Component`.
+  Packaged in a module named `mod_name`.
 
   ## Required options
 
@@ -12,6 +15,13 @@ defmodule Mix.Tasks.PhxSvg.Build do
 
   ```
   mix phx_svg.build --mod-name=Test --svg-path="path/to/svgs/**/*.svg" --output-path="./lib/test.ex"
+  ```
+
+  In a `HEEX` template:
+
+  ```elixir
+  <Test.name_of_svg />
+  <Test.name_of_svg class="w-2 h-2" />
   ```
   """
 
@@ -55,8 +65,13 @@ defmodule Mix.Tasks.PhxSvg.Build do
         {function_name(file), elements}
       end
 
+    priv_dir =
+      :phx_svg
+      |> :code.priv_dir()
+      |> to_string()
+
     Mix.Generator.copy_template(
-      "assets/svg.exs",
+      Path.join([priv_dir, "templates/svg.exs"]),
       output_path,
       %{svgs: svgs, mod_name: mod_name},
       force: true

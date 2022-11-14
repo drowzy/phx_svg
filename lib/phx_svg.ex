@@ -1,2 +1,0 @@
-defmodule PhxSvg do
-end
