@@ -1,5 +1,7 @@
 # Phx.Svg
 
+[![Hex.pm Version](https://img.shields.io/hexpm/v/postgrex_pgoutput.svg?style=flat-square)](https://hex.pm/packages/phx_svg)
+
 Precompile SVGS to functions. Packaged as a `Phoenix Component`
 
 ## Options
