@@ -14,14 +14,14 @@ defmodule Mix.Tasks.PhxSvg.Build do
   ## Example
 
   ```
-  mix phx_svg.build --mod-name=Test --svg-path="path/to/svgs/**/*.svg" --output-path="./lib/test.ex"
+  mix phx_svg.build --mod-name=Svgs --svg-path="path/to/svgs/**/*.svg" --output-path="./lib/svgs.ex"
   ```
 
   In a `HEEX` template:
 
   ```elixir
-  <Test.name_of_svg />
-  <Test.name_of_svg class="w-2 h-2" />
+  <Svgs.name_of_svg />
+  <Svgs.name_of_svg class="w-2 h-2" />
   ```
   """
 
@@ -77,7 +77,7 @@ defmodule Mix.Tasks.PhxSvg.Build do
       force: true
     )
 
-    Mix.Task.run("format")
+    Mix.Task.run("format", [output_path])
   end
 
   defp ignore({:pi, _, _}), do: true
