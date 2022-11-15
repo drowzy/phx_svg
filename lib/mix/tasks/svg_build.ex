@@ -8,8 +8,8 @@ defmodule Mix.Tasks.PhxSvg.Build do
   ## Required options
 
   * `svg_path` - Wildcard path to svgs ex `./path/to/**/.svg`
-  * `mod_name` - Module name to use for generated files defaults to: `SVG`
-  * `output_path` - Output path defautl: `lib/icons.ex`
+  * `mod_name` - Module name to use for generated files defaults to: `Svgs`
+  * `output_path` - Output path defautl: `lib/svgs.ex`
 
   ## Example
 
