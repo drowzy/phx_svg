@@ -1,14 +1,14 @@
 defmodule PhxSvg.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.1.1"
   @source_url "https://github.com/drowzy/phx_svg"
   @description "Precompiled svgs for your phoenix project"
 
   def project do
     [
       app: :phx_svg,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       description: @description,
@@ -43,6 +43,7 @@ defmodule PhxSvg.MixProject do
         mix.exs
         README.md
         lib/
+        priv/
         LICENSE
         .formatter.exs
       ),

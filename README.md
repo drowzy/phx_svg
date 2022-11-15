@@ -37,7 +37,7 @@ The package can be installed by adding `phx_svg` to your list of dependencies in
 ```elixir
 def deps do
   [
-    {:phx_svg, "~> 0.1.0"}
+    {:phx_svg, "~> 0.1.0", only: [:dev], runtime: false}
   ]
 end
 ```
