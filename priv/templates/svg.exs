@@ -28,7 +28,7 @@ defmodule <%= @mod_name %> do
     ~H"""
     <svg {@computed_rest}>
       <%%= {:safe, @paths[:default]} %>
-    </svg>"
+    </svg>
     """
   end
 
